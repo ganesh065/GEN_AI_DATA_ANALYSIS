@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h1 class="logo">GenAI<span>Data</span></h1>
+            
+            <div class="upload-section">
+                <h3>1. Upload Data</h3>
+                <div class="file-drop-area">
+                    <span class="fake-btn">Choose files</span>
+                    <span class="file-msg">or drag and drop here</span>
+                    <input class="file-input" type="file" id="dataset-upload" accept=".csv,.xlsx,.xls">
+                </div>
+                <button id="upload-btn" class="primary-btn" disabled>Process Dataset</button>
+            </div>
+
+            <div class="groq-section">
+                <h3>2. AI Insights & Reports</h3>
+                <button id="insights-btn" class="secondary-btn" disabled>Generate AI Insights</button>
+            </div>
+            
+            <div id="reports-section" class="reports-section hidden">
+                <h3>3. Detailed EDA Reports</h3>
+                <a id="btn-ydata" href="#" target="_blank" class="report-btn">📄 YData Profiling Report</a>
+                <a id="btn-sweetviz" href="#" target="_blank" class="report-btn">📊 Sweetviz Report</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2>Dashboard Overview</h2>
+                <div class="status-indicator" id="status-indicator">Ready to upload data.</div>
+            </header>
+            
+            <section class="kpi-grid" id="kpi-grid">
+            </section>
+
+            <section class="charts-grid" id="charts-grid">
+            </section>
+
+            <section class="insights-panel hidden" id="insights-panel">
+                <h3>💡 AI Analysis & Recommendations</h3>
+                <div class="markdown-body" id="insights-content"></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="loader-overlay hidden" id="loader">
+        <div class="spinner"></div>
+        <p id="loader-text">Processing...</p>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+cache/
+static/reports/
+chart_dump.json
+patch_app.py
+*.pkl
+.DS_Store
+Thumbs.db
